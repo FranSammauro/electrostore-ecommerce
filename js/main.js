@@ -225,19 +225,28 @@ function initializeCarousel() {
   })
 
   // Auto-play
-  let autoPlayInterval = setInterval(() => {
-    currentSlide = currentSlide < totalSlides - 1 ? currentSlide + 1 : 0
-    updateCarousel()
-  }, 4000)
+let autoPlayInterval
 
-  // Pausar auto-play en hover
-  track.addEventListener("mouseenter", () => clearInterval(autoPlayInterval))
-  track.addEventListener("mouseleave", () => {
+function iniciarAutoPlay() {
+  // Solo activar autoplay si no es celular
+  if (window.innerWidth >= 640) {
     autoPlayInterval = setInterval(() => {
       currentSlide = currentSlide < totalSlides - 1 ? currentSlide + 1 : 0
       updateCarousel()
     }, 4000)
-  })
+
+    // Pausar en hover
+    track.addEventListener("mouseenter", () => clearInterval(autoPlayInterval))
+    track.addEventListener("mouseleave", () => {
+      autoPlayInterval = setInterval(() => {
+        currentSlide = currentSlide < totalSlides - 1 ? currentSlide + 1 : 0
+        updateCarousel()
+      }, 4000)
+    })
+  }
+}
+
+iniciarAutoPlay()
 
   // Responsive
   window.addEventListener("resize", () => {
