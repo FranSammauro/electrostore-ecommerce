@@ -86,7 +86,7 @@ function getProductById(id) {
 
 // Cargar productos destacados en carrusel
 function loadFeaturedProducts() {
-  const featuredProducts = getFeaturedProducts()
+  const featuredProducts = getFeaturedProducts().slice(0, 7)
   const container = document.getElementById("featured-products")
 
   if (!container || featuredProducts.length === 0) return
@@ -191,20 +191,19 @@ function initializeCarousel() {
     })
 
     // Asegurar que el producto esté centrado en móviles
-    if (window.innerWidth < 640) {
-      const slides = track.querySelectorAll(".carousel-slide")
+if (window.innerWidth < 640) {
       slides.forEach((slide, index) => {
-        if (index === currentSlide) {
-          slide.scrollIntoView({
-            behavior: "smooth",
-            block: "nearest",
-            inline: "center",
+         const slides = track.querySelectorAll(".carousel-slide")
+         if (index === currentSlide) {
+           slide.scrollIntoView({
+             behavior: "smooth",
+             block: "nearest",
+             inline: "center",
           })
-        }
-      })
+         }
+        })
+      }
     }
-  }
-
   // Event listeners
   prevBtn.addEventListener("click", () => {
     currentSlide = currentSlide > 0 ? currentSlide - 1 : totalSlides - 1

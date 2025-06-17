@@ -196,7 +196,7 @@ function initializeCartControls() {
       }
 
       const message = generateWhatsAppMessage()
-      const whatsappUrl = `https://wa.me/5491123456789?text=${message}`
+      const whatsappUrl = `https://wa.me/5491125068477?text=${message}`
       window.open(whatsappUrl, "_blank")
 
       // Mostrar confirmación

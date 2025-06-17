@@ -332,7 +332,7 @@ function initializeProductControls() {
 
         // Generar mensaje de WhatsApp
         const message = `Hola, quiero comprar:\n\n• ${currentQuantity}x ${currentProduct.name} - ${formatPrice(currentProduct.price * currentQuantity)}\n\nTotal: ${formatPrice(currentProduct.price * currentQuantity)}`
-        const whatsappUrl = `https://wa.me/5491123456789?text=${encodeURIComponent(message)}`
+        const whatsappUrl = `https://wa.me/5491125068477?text=${encodeURIComponent(message)}`
         window.open(whatsappUrl, "_blank")
       }
     })
